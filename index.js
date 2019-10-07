@@ -66,7 +66,8 @@ class PinoLogAdapter {
       // current instance of Seneca plus the raw payload.
       function adapter(context, payload) {
         // Grab the log level before deleting the Seneca level.
-        let level = payload.level
+        let level = payload.level_name
+        if (level == null) level = payload.level
 
         // Avoid duplicate level data in the output.
         delete payload.level

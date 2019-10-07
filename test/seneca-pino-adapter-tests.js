@@ -61,6 +61,8 @@ describe('seneca-pino-adapter-tests', function () {
       const ostream = MemoryStream()
       const logger = Pino({level: 'info'}, ostream)
       const seneca = Seneca({
+        legacy: {logging: false},
+        log: {level: 'debug'},
         internal: {
           logger: new PinoLogAdapter({
             logger: logger
